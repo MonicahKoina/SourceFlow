@@ -1,52 +1,51 @@
+import { Button, DatePicker, Input, Select } from "antd";
+import TextArea from "antd/es/input/TextArea";
+import { Option } from "antd/es/mentions";
 import React from "react";
 
 function Requests() {
   return (
     <div>
-      <h2>New Procurement Request</h2>
-      <form className="flex flex-col">
+      <form className="flex flex-col mx-auto gap-1  mt-4 max-w-[260px] md:max-w-[400px]">
+        <h2 className="font-bold md:text-2xl">New Procurement Request</h2>
         <label htmlFor="requestId">Request ID:</label>
-        <input type="text" name="requestId" placeholder="e.g. REQ-0012" />
+        <Input type="text" name="requestId" placeholder="e.g. REQ-0012" />
         <label htmlFor="itemName">Item Name:</label>
-        <input
+        <Input
           type="text"
           name="itemName"
           placeholder="Enter the requested item"
         />
         <label htmlFor="category">Category:</label>
-        <select name="category">
-          <option value="Goods">Goods</option>
-          <option value="Services">Services</option>
-          <option value="Works">Works</option>
-        </select>
+        <Select name="category">
+          <Option value="Goods">Goods</Option>
+          <Option value="Services">Services</Option>
+          <Option value="Works">Works</Option>
+        </Select>
         <label htmlFor="quantity">Quantity:</label>
-        <input type="number" name="quantity" placeholder="Amount required" />
+        <Input type="number" name="quantity" placeholder="Amount required" />
         <label htmlFor="unit">Unit of Measure:</label>
-        <select name="unit">
-          <option value="pieces">Pieces</option>
-          <option value="kg">KG</option>
-          <option value="cartons">Cartons</option>
-          <option value="liters">Liters</option>
-          <option value="hours">Hours</option>
-        </select>
+        <Select name="unit">
+          <Option value="pieces">Pieces</Option>
+          <Option value="kg">KG</Option>
+          <Option value="cartons">Cartons</Option>
+          <Option value="liters">Liters</Option>
+          <Option value="hours">Hours</Option>
+        </Select>
         <label htmlFor="department">Department:</label>
-        <select name="department">
-          <option value="Accounting">Accounting</option>
-          <option value="IT">IT</option>
-          <option value="Operations">Operations</option>
-          <option value="Procurement">Procurement</option>
-        </select>
+        <Select name="department">
+          <Option value="Accounting">Accounting</Option>
+          <Option value="IT">IT</Option>
+          <Option value="Operations">Operations</Option>
+          <Option value="Procurement">Procurement</Option>
+        </Select>
         <label htmlFor="reason">Reason / Justification:</label>
-        <textarea
-          name="reason"
-          placeholder="Why is the item needed?"
-          rows={3}
-        ></textarea>
+        <TextArea name="reason" placeholder="Why is the item needed?" />
         <label htmlFor="status">Status:</label>
-        <input type="text" name="status" value="Pending" readOnly />
+        <Input type="text" name="status" value="Pending" readOnly />
         <label htmlFor="date">Date Needed By:</label>
-        <input type="date" name="date" />
-        <button type="submit"></button>
+        <DatePicker renderExtraFooter={() => "extra footer"} />
+        <Button type="primary">Submit Request</Button>
       </form>
     </div>
   );
